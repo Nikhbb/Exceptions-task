@@ -2,9 +2,10 @@ package app.model;
 
 import app.helper.HeightException;
 
-public class AirRangeModel {
-    public static final int MIN_HEIGHT = 120, MAX_HEIGHT = 355;
+import static app.helper.HeightValue.MAX_HEIGHT;
+import static app.helper.HeightValue.MIN_HEIGHT;
 
+public class AirRangeModel {
     public String getAirRange(int height) {
         String airRange = "-1";
 
@@ -25,8 +26,8 @@ public class AirRangeModel {
     }
 
     private void validateHeight(int height) {
-        if (height < MIN_HEIGHT || height > MAX_HEIGHT) {
-            throw new HeightException("the height should be from " + MIN_HEIGHT + " to " + MAX_HEIGHT + " meters inclusive");
+        if (height < MIN_HEIGHT.getValue() || height > MAX_HEIGHT.getValue()) {
+            throw new HeightException("the height should be from " + MIN_HEIGHT.getValue() + " to " + MAX_HEIGHT.getValue() + " meters inclusive");
         }
     }
 
